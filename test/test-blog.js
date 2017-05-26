@@ -38,4 +38,18 @@ describe('Blog Posts', function() {
         });
       });
   });
+
+  it('should add an item on POST', function() {
+    const newItem = {title: 'unit test', content: 'new test', author: 'jonathan and naeem', publishDate: ' '};
+    return chai.request(app)
+      .post('/blog-posts')
+      .send(newItem)
+      .then(function(res) {
+        res.should.have.status(201);
+        res.body.should.a('object');
+        res.body.should.include.keys('id', 'title', 'content', 'author', 'publishDate');
+        res.body.id.should.not.be.null;
+        res.body.should.deep.equal(Object.assign(newItem, {id: res.body.id}));
+      });
+  })
 });
