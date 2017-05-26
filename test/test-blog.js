@@ -51,5 +51,28 @@ describe('Blog Posts', function() {
         res.body.id.should.not.be.null;
         res.body.should.deep.equal(Object.assign(newItem, {id: res.body.id}));
       });
-  })
+  });
+
+
+  it('should update items on PUT', function() {
+    const updateData = {
+      title: 'day 6',
+      content: 'new new test',
+      author: 'naeem and jonathan',
+    };
+
+    return chai.request(app)
+      .get('/blog-posts')
+      .then(function(res) {
+        updateData.id = res.body[0].id;
+        return chai.request(app)
+        .put(`/blog-posts/${updateData.id}`)
+        .send(updateData);
+      }).then(function(res) {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.deep.equal(updateData);
+      });
+  });
 });
