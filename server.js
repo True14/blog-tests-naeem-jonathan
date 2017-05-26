@@ -12,9 +12,9 @@ app.use(express.static('public'));
 
 app.use('/blog-posts', blogsRouter);
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
-});
+// app.listen(process.env.PORT || 8080, () => {
+//   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
+// });
 
 let server;
 

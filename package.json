@@ -10,16 +10,22 @@
   },
   "devDependencies": {
     "chai": "^4.0.0",
+    "chai-http": "^3.0.0",
     "mocha": "^3.4.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "mocha ./test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thinkful-c11/blog-api-tanner-jonathan.git"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "hyperdev",
+    "express"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
